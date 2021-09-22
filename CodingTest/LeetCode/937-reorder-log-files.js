@@ -2,30 +2,42 @@
  * @param {string} s
  * @return {boolean}
  * @see https://leetcode.com/submissions/detail/554504413/
- * Runtime: 108 ms
- * Memory Usage: 45.7 MB
- * Date: 2021-09-15
+ * Runtime: 91 ms
+ * Memory Usage: 39.9 MB
+ * Date: 2021-09-16
+ * Todo : Need to be better, faster
  */
-var reverseString = function(s) {
-    return s.reverse();
-};
+var reorderLogFiles = function(logs) {
+    const digitLogs = [];
+    const letterLogs = [];
 
+    logs.forEach((log) => {
+        const splited = log.split(' ');
+        const len = splited.length - 1;
+        const result = splited.splice(1).filter((c) => !isNaN(Number.parseInt(c))).length;
 
-/**
- * @param {string} s
- * @return {boolean}
- * @see https://leetcode.com/submissions/detail/555378717/
- * Runtime: 100 ms
- * Memory Usage: 45.8 MB
- * Date: 2021-09-15
- * This code is little bit faster then upper code. but upper codes readability is better.
- */
-var reverseString2 = function(s) {
-    const lt = s.length;
-    for(let i = 0; i<(lt/2) ; i++ ) {
-        let rr = s[i];
-        let tt = s[lt-i-1];
-        s[i] = tt;
-        s[lt-i-1] = rr;
-    }
-};
+        if (len === result) {
+            digitLogs.push(log);
+        } else {
+            letterLogs.push(log);
+        }
+    })
+
+    return letterLogs.sort((a, b) => {
+        const aa = a.slice(a.indexOf(' ') + 1);
+        const bb = b.slice(b.indexOf(' ') + 1);
+        if (aa > bb) {
+            return 1
+        }
+
+        if (aa < bb) {
+            return -1
+        }
+
+        if(a < b){
+            return -1
+        }
+
+        return 0
+    }).concat(digitLogs);
+}
