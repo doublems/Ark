@@ -1,7 +1,8 @@
 package com.company;
 
 /**
- * 1
+ * BFS
+ *  1
  * / \
  * 2   3
  * / \
