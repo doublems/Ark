@@ -1,5 +1,6 @@
 /**
  * 깊이 탐색 구현가능 확인 요건
+ * https://leetcode.com/submissions/detail/605843620/
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
