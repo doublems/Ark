@@ -30,4 +30,4 @@ var twoSum = function(nums, target) {
     return [];
 };
 
-const result = twoSum(nums2, target2);
+let result = twoSum(nums2, target2);
