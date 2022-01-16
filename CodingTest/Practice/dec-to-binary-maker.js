@@ -3,7 +3,6 @@ const bi = (number) => {
     let reminder = [];
 
     while (quotient >= 2){
-        console.log(quotient);
         reminder.push(quotient % 2);
         quotient = Math.floor(quotient / 2);
     }
